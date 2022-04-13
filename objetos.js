@@ -44,3 +44,14 @@ let duck = {
   let crow = new Bird("Alexis", "black");
   
   crow instanceof Bird;
+
+    // PROPIEDADES DIRECTAS = son aquellas que están definidas directamente en la instancia del objeto.
+
+    function Dog(name) {
+        this.name = name;
+      }
+      
+    // PROPIEDADES PROTOTYPE = son aquellas que se comparten en todas las instancias de un constructor.
+
+    Bird.prototype.numLegs = 2;
+
