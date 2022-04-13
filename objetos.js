@@ -72,3 +72,12 @@ let duck = {
     console.log(ownProps);
     console.log(prototypeProps);
 
+    // Función que permite saber a través de la propiedad constructor que tipo de objeto es
+
+    function joinBirdFraternity(candidate) {
+      if (candidate.constructor === Bird) {
+        return true;
+      } else {
+        return false;
+      }
+    }
