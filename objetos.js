@@ -1,3 +1,5 @@
+//JavaScript objects are containers for named values, called properties and methods.
+
 // creación de objetos con propiedades directas
 
 let duck = {
@@ -82,8 +84,28 @@ let duck = {
 
     Bird.prototype.isPrototypeOf(duck);
 
+  // SUPERTYPE principio DRY 
 
+    function Animal() { };
+
+    Animal.prototype = {
+      constructor: Animal, 
+      describe: function() {
+        console.log("My name is " + this.name);
+      }
+    };  
+
+    Bird.prototype = {
+      constructor: Bird
+    };
     
+    Dog.prototype = {
+      constructor: Dog
+    };
+
+    // Heredar comportamientos de un SUPERTYPE
+
+    let animal = Object.create(Animal.prototype);
 
 
     // Iterar con un bucle for in sobre las propiedades de un objeto
