@@ -32,3 +32,15 @@ let duck = {
     this.color = color;
     this.numLegs = 2;
   }
+    
+  // Verificación del constructor de un objeto con "instanceof" ( true or false)
+
+  let Bird = function(name, color) {
+    this.name = name;
+    this.color = color;
+    this.numLegs = 2;
+  }
+  
+  let crow = new Bird("Alexis", "black");
+  
+  crow instanceof Bird;
