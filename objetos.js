@@ -50,8 +50,25 @@ let duck = {
     function Dog(name) {
         this.name = name;
       }
-      
+
     // PROPIEDADES PROTOTYPE = son aquellas que se comparten en todas las instancias de un constructor.
 
     Bird.prototype.numLegs = 2;
+
+
+    // Iterar con un bucle for in sobre las propiedades de un objeto
+
+    let ownProps = [];
+    let prototypeProps = [];
+
+    for (let property in duck) {
+        if(duck.hasOwnProperty(property)) {
+            ownProps.push(property);
+        } else {
+            prototypeProps.push(property);
+        }
+    }
+
+    console.log(ownProps);
+    console.log(prototypeProps);
 
