@@ -19,7 +19,7 @@ let duck = {
   };
   duck.sayName();
 
-    // definición del constructor de un objeto
+    // definición del constructor de un objeto (el nombre del constructor del objeto por convención va con MAYÚSCULA)
 
   function Bird() {
     this.name = "Albert";
