@@ -185,3 +185,34 @@ let duck = {
     (function () {
       console.log("Chirp, chirp!");
     })();
+
+    //Una expresión de función inmediatamente invocada (IIFE) se utiliza a menudo para agrupar la funcionalidad relacionada en un solo objeto o módulo.
+
+    function glideMixin(obj) {
+      obj.glide = function() {
+        console.log("Gliding on the water");
+      };
+    }
+    function flyMixin(obj) {
+      obj.fly = function() {
+        console.log("Flying, wooosh!");
+      };
+    }
+
+    let motionModule = (function () {
+      return {
+        glideMixin: function(obj) {
+          obj.glide = function() {
+            console.log("Gliding on the water");
+          };
+        },
+        flyMixin: function(obj) {
+          obj.fly = function() {
+            console.log("Flying, wooosh!");
+          };
+        }
+      }
+    })();
+
+    motionModule.glideMixin(duck);
+    duck.glide();
