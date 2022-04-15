@@ -107,6 +107,14 @@ let duck = {
 
     let animal = Object.create(Animal.prototype);
 
+    //Un Objeto puede heredar su comportamiento (métodos) de otro objeto al referenciar su prototype (METODOS HEREDADOS)
+
+    ChildObject.prototype = Object.create(ParentObject.prototype);
+
+    // El ChildObject recibió sus propios métodos al encadenarlos a su prototype (METODOS PROPIOS)
+
+    ChildObject.prototype.methodName = function() {...};
+
 
     // Iterar con un bucle for in sobre las propiedades de un objeto
 
@@ -133,3 +141,47 @@ let duck = {
         return false;
       }
     }
+
+    //En lugar de HERENCIA, para objetos "no relacionados" es mejor utilizar "mixins". Un "mixin" permite a otros objetos utilizar una colección de funciones.
+    //El flyMixin toma a cualquier objeto y le da el método fly.
+
+    let flyMixin = function(obj) {
+      obj.fly = function() {
+        console.log("Flying, wooosh!");
+      }
+    };
+
+    let bird = {
+      name: "Donald",
+      numLegs: 2
+    };
+    
+    let plane = {
+      model: "777",
+      numPassengers: 524
+    };
+    
+    flyMixin(bird);
+    flyMixin(plane);
+
+    //Propiedades PÚBLICAS son aquellas que se pueden acceder y modificar por fuera de la definición del objeto 
+    bird.name = "Duffy";
+
+    //La forma más sencilla de hacer PRIVADA esta propiedad pública es creando una variable dentro de la función constructora. Esto cambia el alcance de esa variable para que esté dentro de la función constructora versus disponible globalmente. De este modo, la variable solo puede ser accesible y cambiable por métodos que también estén dentro de la función constructora.
+
+    // Aquí getHatchedEggCount es un método privilegiado, porque tiene acceso a la variable privada hatchedEgg. Esto es posible porque hatchedEgg está declarada en el mismo contexto que getHatchedEggCount. En JavaScript, una función siempre tiene acceso al contexto en el que se creó. A esto se le llama CLOUSURE.
+
+   function Bird() {
+      let weight = 15;
+      this.getWeight= function(){
+        return weight;
+      };
+    }
+
+    let ducky = new Bird();
+    ducky.getWeight();
+
+    //funciones que son invocadas inmediatamente (IIFE) Immediately invoked function expression (Se invocan "()" mientras se estan declarando)
+    (function () {
+      console.log("Chirp, chirp!");
+    })();
