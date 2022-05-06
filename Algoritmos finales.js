@@ -178,6 +178,41 @@ function palindrome(str) {
  
  console.log(convertToRoman(4000));
  
+ // Función que decodifica lenguaje ROT13 (Cifrado César)
+
+ function rot13(str) {
+   let result="";
+   let temporal= str.split(" ")
+
+   function decodificar(x){
+     let a= x.charCodeAt();
+     let b= a-13;
+     if (b<65){
+       b= b+26;
+     }
+     return String.fromCharCode(b);
+   }
+ 
+   for (let i=0; i<temporal.length; i++){
+      if(i>0){
+         result= result +" ";
+       }
+     for (let j=0; j<temporal[i].length;j++){
+ 
+       if(temporal[i][j].search(/\W/)!=-1){
+          result= result + temporal[i][j];
+       }else{
+         result= result + decodificar(temporal[i][j]);
+       }
+     }
+   }
+  return result;
+ }
+ 
+ console.log(rot13("GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT."));
+ 
+ 
+ 
  
  
  
