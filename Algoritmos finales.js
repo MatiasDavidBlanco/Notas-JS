@@ -211,54 +211,25 @@ function palindrome(str) {
  
  console.log(rot13("GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT."));
 
-// funcion que valida un múmero telefónico
+// funcion que valida un número telefónico
+// Formatos válidos
+//555-555-5555
+//(555)555-5555
+//(555) 555-5555
+//555 555 5555
+//5555555555
+//1 555 555 5555
 
  function telephoneCheck(str) {
-
-   let result= true;
-   let num= str.match(/\d/g);
-   let pattern1= /\W/g;
-   let pattern2= /("("|")")/g;
-   let largo= num.length;
-   console.log(largo)
  
-   if (str.search(pattern1)!=-1){
-     result=false;
-   }else{
-     result= true;
-   }
- 
-   
-   // si el num tiene 10 numeros es TRUE
-   if(largo===10){
-     result=true;
-   }else if(largo===11 & num[0]==="1"){ // si el num tiene 11 numeros es TRUE si empieza con 1 sino FALSE
-       result=true;
-   }else{
-       result=false;
-   }
-   if (largo<10 || largo>11){ // si el num tiene menos de 10 numeros o más de 11 números es FALSE
-     result= false;
-   }
-   
-   
-   return result;
- 
- }
- 
- console.log(telephoneCheck("1 555)555-5555"));
- 
- //EVAULAR STR
- 
- 
-   // SI TIENE 11 NUMEROS ( EVALUAR SI EL PRIMERO ES 1) 
-   // SI TIENE MENOS DE 10 NUMEROS - INVALIDO
-   // SI TIENE CARÁCTERES QUE NO SEAN (NUMEROS, "()", "-") INVALIDO
-   // 
- 
- 
- 
- 
+    let regExp= /^(1\s?)?(\d{3}|\(\d{3}\))[\-\s]?\d{3}[\-\s]?\d{4}$/;
+    return regExp.test(str);
+  
+  }
+  
+  console.log(telephoneCheck("-1 (757) 622-7382"));
+  
+  
  
  
   
