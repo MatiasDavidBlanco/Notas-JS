@@ -228,6 +228,68 @@ function palindrome(str) {
   }
   
   console.log(telephoneCheck("-1 (757) 622-7382"));
+
+// Función caja registradora (sin terminar)
+
+  function checkCashRegister(price, cash, cid) {
+    let cambio= cash-price;
+    let caja=0;
+    for (let i=0; i<cid.length;i++){
+      caja+=cid[i][1];
+    }
+  console.log("CAMBIO:"+cambio)
+  
+    // opcion 1
+  
+    if( caja < cambio ){
+      var obj = {
+      status: "INSUFFICIENT_FUNDS",
+      change: []
+      };
+      return obj;
+    } 
+    if( caja === cambio ){
+      var obj1 = {
+      status: "CLOSED",
+      change: [...cid]
+      };
+      return obj1;
+    } 
+  
+  
+    // este if no funciona 
+  
+    if( caja > cambio ){
+  
+      var obj2 = {
+      status: "OPEN",
+      change:[]
+      };
+    
+      for(let j=0; j<= cid.length; j++){
+        obj2.change=cid[1];
+      }
+      return obj2;
+    }
+      
+     
+    
+  }
+  
+  console.log(checkCashRegister(3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]));
+  
+  // sumar todo el dinero disponible CID y ponerlo en una variable
+  // crear una variable con el cambio que debo entregar
+  
+  // POSIBILIDADES:
+  
+  // 1) si el dinero disponible en caja es menor que el cambio necesario o no puedo devolver el cambio exacto devolver un objeto= {status: "INSUFFICIENT_FUNDS", change: []}
+  
+  // 2) si el dinero disponible en caja es IGUAL que el cambio necesario devolver un objeto= {status: "CLOSED", change: [PONER EL CAMBIO ]}
+  
+  // 3) si el dinero disponible en caja es MAYOR que el cambio necesario devolver un objeto= {status: "OPEN", change: [PONER EL CAMBIO QUE DEBO ENTREGAR]}
+  
+  
   
   
  
